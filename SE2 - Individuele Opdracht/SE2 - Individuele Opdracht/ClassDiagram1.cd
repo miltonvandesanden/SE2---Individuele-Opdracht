@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SE2___Individuele_Opdracht.DbConnection">
+    <Position X="6" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAABAAAQAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>DbConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.DbAdvertControl">
+    <Position X="8" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAEAAAAAACAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbAdvertControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.DbUserControl">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAgAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>DbUserControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.DbOfferControl">
+    <Position X="4.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbOfferControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.AdvertControl">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEAAAAEAAAAAACAAAEAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdvertControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DbAdvertControl" />
+      <Property Name="Advert" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.Advert">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAAQIgAAAAACAAAAAAAAAAAAAAAAEAAAAIAAAA=</HashCode>
+      <FileName>Advert.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.Service">
+    <Position X="10.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAABAgAAAAAA=</HashCode>
+      <FileName>Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.Good">
+    <Position X="12.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Good.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.UserControl">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAAAAAAAAAAEAAAAAgAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>UserControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DbUserControl" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.User">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <AssociationLine Name="Advert" Type="SE2___Individuele_Opdracht.Advert" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="4.25" />
+        <Point X="11.344" Y="4.25" />
+        <Point X="11.344" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CwAAABAAAAAAAAAgCAAAAAAAAEABAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Advert" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.OfferControl">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEABAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OfferControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Offer" />
+      <Property Name="DbOfferControl" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.Offer">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <AssociationLine Name="Advert" Type="SE2___Individuele_Opdracht.Advert" ManuallyRouted="true">
+      <Path>
+        <Point X="5.75" Y="2.731" />
+        <Point X="5.995" Y="2.731" />
+        <Point X="5.995" Y="5.151" />
+        <Point X="6.917" Y="5.151" Type="JumpStart" />
+        <Point X="7.083" Y="5.151" Type="JumpEnd" />
+        <Point X="7.667" Y="5.151" Type="JumpStart" />
+        <Point X="7.833" Y="5.151" Type="JumpEnd" />
+        <Point X="9" Y="5.151" />
+        <Point X="9" Y="4.435" />
+        <Point X="11.26" Y="4.435" Type="JumpStart" />
+        <Point X="11.427" Y="4.435" Type="JumpEnd" />
+        <Point X="11.953" Y="4.435" />
+        <Point X="11.953" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Offer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Advert" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.DbLoginControl">
+    <Position X="2.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>DbLoginControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SE2___Individuele_Opdracht.LoginControl">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAQAAAAA=</HashCode>
+      <FileName>LoginControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DbLoginControl" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
