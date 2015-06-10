@@ -4,35 +4,35 @@
     <Position X="6" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAAAAABAAAQAAAAAAACAAAAAAAAA=</HashCode>
-      <FileName>DbConnection.cs</FileName>
+      <FileName>DbLayer\DbConnection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.DbAdvertControl">
     <Position X="8" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAEAAAAAACAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DbAdvertControl.cs</FileName>
+      <FileName>DbLayer\DbAdvertControl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.DbUserControl">
     <Position X="6" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAgAAAAAEAAAAAAAAAA=</HashCode>
-      <FileName>DbUserControl.cs</FileName>
+      <FileName>DbLayer\DbUserControl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.DbOfferControl">
     <Position X="4.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
-      <FileName>DbOfferControl.cs</FileName>
+      <FileName>DbLayer\DbOfferControl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.AdvertControl">
     <Position X="8" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAEAAAAEAAAAAACAAAEAEAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AdvertControl.cs</FileName>
+      <FileName>BusinessLayer\AdvertControl.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="DbAdvertControl" />
@@ -43,7 +43,7 @@
     <Position X="11" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAEAAQIgAAAAACAAAAAAAAAAAAAAAAEAAAAIAAAA=</HashCode>
-      <FileName>Advert.cs</FileName>
+      <FileName>BusinessLayer\Advert.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="User" />
@@ -53,21 +53,21 @@
     <Position X="10" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAABAgAAAAAA=</HashCode>
-      <FileName>Service.cs</FileName>
+      <FileName>BusinessLayer\Service.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.Good">
     <Position X="12" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Good.cs</FileName>
+      <FileName>BusinessLayer\Good.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.UserControl">
     <Position X="6" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAQAAAAAAAAAAEAAAAAgAAAAAEAAAAAAAAAA=</HashCode>
-      <FileName>UserControl.cs</FileName>
+      <FileName>BusinessLayer\UserControl.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="DbUserControl" />
@@ -85,7 +85,7 @@
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>CwAAABAAAAAAAAAgCAAAAAAAAEABAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>User.cs</FileName>
+      <FileName>BusinessLayer\User.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Advert" />
@@ -95,7 +95,7 @@
     <Position X="4.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEABAAQAEAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
-      <FileName>OfferControl.cs</FileName>
+      <FileName>BusinessLayer\OfferControl.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Offer" />
@@ -123,7 +123,7 @@
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AQABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Offer.cs</FileName>
+      <FileName>BusinessLayer\Offer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Advert" />
@@ -134,14 +134,14 @@
     <Position X="2.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>DbLoginControl.cs</FileName>
+      <FileName>DbLayer\DbLoginControl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SE2___Individuele_Opdracht.LoginControl">
     <Position X="2.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAQAAAAA=</HashCode>
-      <FileName>LoginControl.cs</FileName>
+      <FileName>BusinessLayer\LoginControl.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="DbLoginControl" />

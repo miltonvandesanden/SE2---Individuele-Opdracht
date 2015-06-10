@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InterfaceLayer\bootstrap.css" />
     <Content Include="ClassDiagram1.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -69,21 +70,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Advert.cs" />
-    <Compile Include="AdvertControl.cs" />
-    <Compile Include="DbAdvertControl.cs" />
-    <Compile Include="DbConnection.cs" />
-    <Compile Include="DbLoginControl.cs" />
-    <Compile Include="DbOfferControl.cs" />
-    <Compile Include="DbUserControl.cs" />
-    <Compile Include="Good.cs" />
-    <Compile Include="LoginControl.cs" />
-    <Compile Include="Offer.cs" />
-    <Compile Include="OfferControl.cs" />
+    <Compile Include="BusinessLayer\Advert.cs" />
+    <Compile Include="BusinessLayer\AdvertControl.cs" />
+    <Compile Include="DbLayer\DbAdvertControl.cs" />
+    <Compile Include="DbLayer\DbConnection.cs" />
+    <Compile Include="DbLayer\DbLoginControl.cs" />
+    <Compile Include="DbLayer\DbOfferControl.cs" />
+    <Compile Include="DbLayer\DbUserControl.cs" />
+    <Compile Include="BusinessLayer\Good.cs" />
+    <Compile Include="BusinessLayer\LoginControl.cs" />
+    <Compile Include="BusinessLayer\Offer.cs" />
+    <Compile Include="BusinessLayer\OfferControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserControl.cs" />
+    <Compile Include="BusinessLayer\Service.cs" />
+    <Compile Include="BusinessLayer\User.cs" />
+    <Compile Include="BusinessLayer\UserControl.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
