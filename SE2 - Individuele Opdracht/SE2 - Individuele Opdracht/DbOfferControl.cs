@@ -17,5 +17,10 @@ namespace SE2___Individuele_Opdracht
         {
             throw new System.NotImplementedException();
         }
+
+        public void GetAllOffers()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

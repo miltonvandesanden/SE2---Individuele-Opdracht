@@ -8,10 +8,6 @@ namespace SE2___Individuele_Opdracht
 {
     public abstract class DbConnection
     {
-        public DbConnection()
-        {
-            throw new System.NotImplementedException();
-        }
     
         public OracleConnection Connection
         {
