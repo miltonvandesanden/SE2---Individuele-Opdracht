@@ -1,0 +1,91 @@
+DROP TABLE SE2_Postalcode CASCADE CONSTRAINTS;
+DROP TABLE SE2_User CASCADE CONSTRAINTS;
+DROP TABLE SE2_Category CASCADE CONSTRAINTS;
+DROP TABLE SE2_Advert CASCADE CONSTRAINTS;
+DROP TABLE SE2_Service CASCADE CONSTRAINTS;
+DROP TABLE SE2_Good CASCADE CONSTRAINTS;
+DROP TABLE SE2_Offer CASCADE CONSTRAINTS;
+
+CREATE TABLE SE2_Postalcode
+(
+  postalcode VARCHAR2(6) PRIMARY KEY,
+  xCoord NUMBER(4,0),
+  yCoord NUMBER(4,0)
+);
+
+CREATE TABLE SE2_User
+(
+  userID NUMBER(6,0) PRIMARY KEY,
+  userName VARCHAR2(30) NOT NULL,
+  userPassword VARCHAR2(30) NOT NULL,
+  email VARCHAR2(30),
+  phoneNumber NUMBER(20),
+  postalcode VARCHAR2(6) NOT NULL,
+  emailPref NUMBER(1,0) DEFAULT 0 CHECK(emailPref = 0 OR emailPref = 1),
+  paymentPref NUMBER(1,0) DEFAULT 0 CHECK(paymentPref = 0 OR paymentPref = 1),
+  receiptPref NUMBER(1,0) DEFAULT 0 CHECK(receiptPref = 0 OR receiptPref = 1)
+);
+
+CREATE TABLE SE2_Category
+(
+  categoryID NUMBER(6,0) PRIMARY KEY,
+  categoryName VARCHAR2(30) NOT NULL,
+  subCategoryID NUMBER(6,0)
+);
+
+CREATE TABLE SE2_Advert
+(
+  advertID NUMBER(6,0) PRIMARY KEY,
+  title VARCHAR2(30) NOT NULL,
+  creationDate DATE DEFAULT SYSDATE,
+  advertViews NUMBER(6,0) DEFAULT 0,
+  serviceOrGood NUMBER(1,0) NOT NULL CHECK(serviceOrGood = 0 OR serviceOrGood = 1),
+  userID NUMBER(6,0) NOT NULL,
+  categoryID NUMBER(6,0) NOT NULL
+);
+
+CREATE TABLE SE2_Service
+(
+  advertID NUMBER(6,0) PRIMARY KEY,
+  experience VARCHAR2(30) NOT NULL,
+  employees VARCHAR2(30) NOT NULL,
+  companyType VARCHAR2(30) NOT NULL
+);
+
+CREATE TABLE SE2_Good
+(
+  advertID NUMBER(6,0) PRIMARY KEY,
+  condition VARCHAR2(30) NOT NULL
+);
+
+CREATE TABLE SE2_Offer
+(
+  offerID NUMBER(6,0) PRIMARY KEY,
+  amount NUMBER(6,0) NOT NULL CHECK(amount > 0),
+  userID NUMBER(6,0) NOT NULL,
+  advertID NUMBER(6,0) NOT NULL
+);
+
+ALTER TABLE SE2_User
+  ADD CONSTRAINT FK_User_Postalcode FOREIGN KEY(postalcode) REFERENCES SE2_Postalcode(postalcode);
+  
+ALTER TABLE SE2_Category
+  ADD CONSTRAINT FK_Category_SubCategory FOREIGN KEY(subCategoryID) REFERENCES SE2_Category(categoryID);
+  
+ALTER TABLE SE2_Advert
+  ADD CONSTRAINT FK_Advert_User FOREIGN KEY (userID) REFERENCES SE2_User(userID);
+  
+ALTER TABLE SE2_Advert
+  ADD CONSTRAINT FK_Advert_Category FOREIGN KEY (categoryID) REFERENCES SE2_Category(categoryID);
+  
+ALTER TABLE SE2_Service
+  ADD CONSTRAINT FK_Service_Advert FOREIGN KEY (advertID) REFERENCES SE2_Advert(advertID);
+  
+ALTER TABLE SE2_Good
+  ADD CONSTRAINT FK_Good_Advert FOREIGN KEY (advertID) REFERENCES SE2_Advert(advertID);
+  
+ALTER TABLE SE2_Offer
+  ADD CONSTRAINT FK_Offer_User FOREIGN KEY (userID) REFERENCES SE2_User(userID);
+  
+ALTER TABLE SE2_Offer
+  ADD CONSTRAINT FK_Offer_Advert FOREIGN KEY (userID) REFERENCES SE2_Advert(advertID);
