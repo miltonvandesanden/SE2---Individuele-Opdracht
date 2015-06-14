@@ -9,26 +9,29 @@ namespace SE2___Individuele_Opdracht
 {
     public class User
     {
-        public int userID {get; set;}
-        public string userName {get; set;}
-        public string userPassword {get; set;}
-        public string email {get; set; }
-        public int phonenumber {get; set; }
-        public bool emailPref{get; set;}
-        public bool paymentPref{get; set;}
-        public bool receiptPref{get; set; }
-        public List<Advert> Adverts{get; set;}
+        public int UserID {get; set;}
+        public string UserName {get; set;}
+        public string UserPassword {get; set;}
+        public string Email {get; set; }
+        public int Phonenumber {get; set; }
+        public string Postalcode { get; set; }
+        public bool EmailPref{get; set;}
+        public bool PaymentPref{get; set;}
+        public bool ReceiptPref{get; set; }
+        public List<int> AdvertID{get; set;}
 
-        public User(int userID, string userName, string userPassword, string email, int phonenumber, bool emailPref, bool receiptPref, bool paymentPref)
+        public User(int userId, string userName, string userPassword, string email, int phonenumber, string postalcode, bool emailPref, bool paymentPref, bool receiptPref, List<int> advertId)
         {
-            this.userID = userID;
-            this.userName = userName;
-            this.userPassword = userPassword;
-            this.email = email;
-            this.phonenumber = phonenumber;
-            this.emailPref = emailPref;
-            this.receiptPref = receiptPref;
-            this.paymentPref = paymentPref;
+            UserID = userId;
+            UserName = userName;
+            UserPassword = userPassword;
+            Email = email;
+            Phonenumber = phonenumber;
+            Postalcode = postalcode;
+            EmailPref = emailPref;
+            PaymentPref = paymentPref;
+            ReceiptPref = receiptPref;
+            AdvertID = advertId;
         }
     }
 }

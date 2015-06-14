@@ -10,54 +10,178 @@ namespace SE2___Individuele_Opdracht
 {
     public class DbUserControl : DbConnection
     {
-        public void CreateUser()
+        public bool CheckPostalcode(string postalcode)
         {
-            throw new System.NotImplementedException();
+            bool result = false;
+
+            try
+            {
+                OracleConnection.Open();
+
+                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleDataReader oracleDataReader;
+
+                oracleCommand.CommandText = "SELECT postalcode FROM SE2_Postalcode WHERE postalcode = :postalcode";
+                oracleCommand.Parameters.Add("postalcode", postalcode);
+
+                oracleDataReader = oracleCommand.ExecuteReader();
+
+                if (oracleDataReader.HasRows)
+                {
+                    result = true;
+                }
+
+                OracleConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                
+                throw exception;
+            }
+
+            return result;
+        }
+        public void CreatePostalcode(string postalcode)
+        {
+            try
+            {
+                OracleConnection.Open();
+
+                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+
+                oracleCommand.CommandText = "INSERT INTO SE2_User (postalcode) VALUES(:postalcode)";
+                oracleCommand.Parameters.Add("postalcode", postalcode);
+
+                oracleCommand.ExecuteNonQuery();
+
+                OracleConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
-        public void CheckUser()
+        public bool CheckUser(string username)
         {
-            throw new System.NotImplementedException();
-        }
+            bool result = false;
 
-        public void GetUser()
+            try
+            {
+                OracleConnection.Open();
+
+                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleDataReader oracleDataReader;
+
+                oracleCommand.CommandText = "SELECT userName FROM SE2_User WHERE userName = :username";
+                oracleCommand.Parameters.Add("username", username);
+
+                oracleDataReader = oracleCommand.ExecuteReader();
+
+                if (oracleDataReader.HasRows)
+                {
+                    result = true;
+                }
+
+                OracleConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
+            return result;
+        }
+        public void CreateUser(string userName, string userPassword, string email, int phone, string postalcode)
         {
-            throw new System.NotImplementedException();
+            if (!CheckUser(userName))
+            {
+                if (!CheckPostalcode(postalcode))
+                {
+                    CreatePostalcode(postalcode);
+                }
+
+                try
+                {
+                    OracleConnection.Open();
+
+                    OracleCommand oracleCommand = OracleConnection.CreateCommand();
+
+                    oracleCommand.CommandText = "INSERT INTO SE2_User (userName, userPassword, email, phoneNumber, postalcode) VALUES(:userName, :userPassword, :email, :phoneNumber, :postalcode)";
+                    oracleCommand.Parameters.Add("userName", userName);
+                    oracleCommand.Parameters.Add("userPassword", userPassword);
+                    oracleCommand.Parameters.Add("email", email);
+                    oracleCommand.Parameters.Add("phoneNumber", phone);
+                    oracleCommand.Parameters.Add("postalcode", postalcode);
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
         }
 
         public List<User> GetAllUser()
         {
             List<User> users = new List<User>();
 
+            try
+            {
+                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleDataReader oracleDataReader;
+
+                oracleCommand.CommandText = "SELECT userID, userName, userPassword, email, phoneNumber, postalcode emailPref, paymentPref, receiptPref FROM SE2_User";
+
+                oracleDataReader = oracleCommand.ExecuteReader();
+
+                if (oracleDataReader.HasRows)
+                {
+                    while (oracleDataReader.Read())
+                    {
+                        int userID = Convert.ToInt32(oracleDataReader["userID"]);
+                        string userName = Convert.ToString(oracleDataReader["userName"]);
+                        string userPassword = Convert.ToString(oracleDataReader["userPassword"]);
+                        string email = Convert.ToString(oracleDataReader["email"]);
+                        int phone = Convert.ToInt32(oracleDataReader["phoneNumber"]);
+                        string postalcode = Convert.ToString(oracleDataReader["postalcode"]);
+                        bool emailPref = Convert.ToInt32(oracleDataReader["emailPref"]) == 1;
+                        bool paymentPref = Convert.ToInt32(oracleDataReader["paymentPref"]) == 1;
+                        bool receiptPref = Convert.ToInt32(oracleDataReader["emailPref"]) == 1;
+                        
+                        users.Add(new User(userID, userName, userPassword, email, phone, postalcode, emailPref, paymentPref, receiptPref, GetAllAdvertIDOfUser(userID)));
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                
+                throw exception;
+            }
+
+            return users;
+        }
+
+        public List<int> GetAllAdvertIDOfUser(int userID)
+        {
+            List<int> advertID = new List<int>();
+
             OracleCommand oracleCommand = OracleConnection.CreateCommand();
             OracleDataReader oracleDataReader;
 
-            oracleCommand.CommandText = "SELECT userName, userPassword, email, phoneNumber, postalcode emailPref, paymentPref, receiptPref FROM SE2_User";
-
-            oracleDataReader = oracleCommand.ExecuteReader();
-
-            while (oracleDataReader.Read())
-            {
-
-            }
-        }
-
-        public List<Advert> GetAllAdvertsOfUser(int userID)
-        {
-            List<Advert> adverts = new List<Advert>();
-            OracleCommand oracleCommand;
-            OracleDataReader oracleDataReader;
-
-            oracleCommand = OracleConnection.CreateCommand();
-            oracleCommand.CommandText = "SELECT advertID, title, creationDate, views, serviceOrGood, categoryID FROM SE2_Advert WHERE userID = :userID";
+            oracleCommand.CommandText = "Select advertID FROM SE2_Advert WHERE userID = :userID";
             oracleCommand.Parameters.Add("userID", userID);
 
             oracleDataReader = oracleCommand.ExecuteReader();
 
-            while (oracleDataReader.Read())
+            if (oracleDataReader.HasRows)
             {
-                adverts.Add(new Advert());
+                while (oracleDataReader.Read())
+                {
+                    advertID.Add(Convert.ToInt32(oracleDataReader["advertID"]));
+                }
             }
+
+            return advertID;
         }
     }
 }

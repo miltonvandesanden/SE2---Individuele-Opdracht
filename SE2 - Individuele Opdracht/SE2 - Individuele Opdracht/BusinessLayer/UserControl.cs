@@ -11,7 +11,6 @@ namespace SE2___Individuele_Opdracht
     {
         private DbUserControl dbUserControl = new DbUserControl();
         private List<User> users = new List<User>();
-
         public UserControl()
         {
             GetAllUsers();
@@ -20,23 +19,12 @@ namespace SE2___Individuele_Opdracht
         {
             throw new System.NotImplementedException();
         }
-
-        public void CheckUser()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void GetUser()
         {
             throw new System.NotImplementedException();
         }
 
         public void GetAllUsers()
-        {
-            
-        }
-
-        public List<Advert> GetAllAdvertsOfUser(int userID)
         {
             
         }
