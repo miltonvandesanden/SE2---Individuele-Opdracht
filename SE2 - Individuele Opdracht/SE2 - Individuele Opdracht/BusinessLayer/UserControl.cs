@@ -15,18 +15,28 @@ namespace SE2___Individuele_Opdracht
         {
             GetAllUsers();
         }
-        public void CreateUser()
+        public void CreateUser(string userName, string userPassword, string email, int phone, string postalcode)
         {
-            throw new System.NotImplementedException();
+            dbUserControl.CreateUser(userName, userPassword, email, phone, postalcode);
+            GetAllUsers();
         }
-        public void GetUser()
+        public User GetUser(string username)
         {
-            throw new System.NotImplementedException();
+            User result = null;
+            foreach (User user in users)
+            {
+                if (user.UserName == username)
+                {
+                    result = user;
+                }
+            }
+
+            return result;
         }
 
         public void GetAllUsers()
         {
-            
+            users = dbUserControl.GetAllUsers();
         }
     }
 }

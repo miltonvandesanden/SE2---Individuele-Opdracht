@@ -121,7 +121,7 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
-        public List<User> GetAllUser()
+        public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();
 
