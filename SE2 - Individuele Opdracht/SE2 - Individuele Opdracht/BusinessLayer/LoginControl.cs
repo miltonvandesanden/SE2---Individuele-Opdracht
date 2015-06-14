@@ -8,20 +8,10 @@ namespace SE2___Individuele_Opdracht
 {
     public class LoginControl
     {
-        public DbLoginControl DbLoginControl
+        private DbLoginControl dbLoginControl = new DbLoginControl();
+        public bool Login(string username, string password)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-    
-        public void Login()
-        {
-            throw new System.NotImplementedException();
+            return dbLoginControl.Login(username, password);
         }
 
         public void Logout()

@@ -9,37 +9,20 @@ namespace SE2___Individuele_Opdracht
 {
     public abstract class DbConnection
     {
-    
-        public OracleConnection Connection
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private OracleConnection oracleConnection;
+        private string connectionString;
+        public OracleConnection OracleConnection { get { return oracleConnection; }}
 
-        public string ConnectionString
+        public DbConnection()
         {
-            get
+            try
             {
-                throw new System.NotImplementedException();
+                oracleConnection = new OracleConnection(connectionString);
             }
-            set
+            catch (Exception e)
             {
+                throw e;
             }
-        }
-
-        public void OpenConnection()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void CloseConnection()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

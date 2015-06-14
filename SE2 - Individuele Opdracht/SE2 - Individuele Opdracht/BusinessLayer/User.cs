@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -8,108 +9,38 @@ namespace SE2___Individuele_Opdracht
 {
     public class User
     {
-        public int userID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int userID {get; set;}
 
-        public string userName
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string userName {get; set;}
 
-        public string userPassword
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string userPassword {get; set;}
 
-        public string email
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string email {get; set; }
 
-        public int phonenumber
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int phonenumber {get; set; }
 
-        public bool emailPref
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public bool emailPref{get; set;}
 
-        public bool paymentPref
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public bool paymentPref{get; set;}
 
-        public bool receiptpref
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public bool receiptPref{get; set; }
 
-        public Advert Advert
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public List<Advert> Adverts{get; set;}
 
-        public void GetAdverts()
+        public User(int userID, string userName, string userPassword, string email, int phonenumber, bool emailPref, bool receiptPref, bool paymentPref)
         {
-            throw new System.NotImplementedException();
+            this.userID = userID;
+            this.userName = userName;
+            this.userPassword = userPassword;
+            this.email = email;
+            this.phonenumber = phonenumber;
+            this.emailPref = emailPref;
+            this.receiptPref = receiptPref;
+            this.paymentPref = paymentPref;
+        }
+        public void GetUserAdverts()
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -8,28 +9,13 @@ namespace SE2___Individuele_Opdracht
 {
     public class UserControl
     {
-        public DbUserControl DbUserControl
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private DbUserControl dbUserControl = new DbUserControl();
+        private List<User> users = new List<User>();
 
-        public User User
+        public UserControl()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            GetAllUsers();
         }
-    
         public void CreateUser()
         {
             throw new System.NotImplementedException();
@@ -43,6 +29,11 @@ namespace SE2___Individuele_Opdracht
         public void GetUser()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void GetAllUsers()
+        {
+            
         }
     }
 }

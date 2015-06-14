@@ -10,20 +10,41 @@
     </head>
     <body>
         <form id="form1" runat="server">
-            <div id="SideBar" class="col-md-2">
-                <div id="LoginControl">
-                    <asp:TextBox ID="tbLoginControlUsername" runat="server" />
-                    <asp:TextBox ID="tbLoginControlPassword" runat="server" />
-                    <asp:Button ID="btnLoginControlLog" runat="server" Text="LogIn" />
-                </div>
-                <div id="NavBar">
-                    <asp:LinkButton ID="linkbtnUserControl" runat="server">User Control</asp:LinkButton>
-                    <asp:LinkButton ID="linkbtnAdvertControl" runat="server">Advert Control</asp:LinkButton>
+            <div class="row">
+                <div id="LogBar" class="col-md-2">
+                    <div>
+                        <asp:TextBox ID="tbLoginControlUsername" runat="server" />
+                    </div>
+                    <div>
+                        <asp:TextBox ID="tbLoginControlPassword" runat="server" />
+                    </div>
+                    <div>
+                        <asp:Button ID="btnLoginControlLog" CssClass="button" runat="server" Text="LogIn" OnClick="btnLoginControlLog_Click" />
+                    </div>
+                    <div>
+                        <asp:Label ID="lblLoginControlError" runat="server" Text=""/>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="linkbtnCreateUser" runat="server" Text="Create Account" OnClick="linkbtnCreateUser_Click"/>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>                
+            <div class="row">
+                <div id="NavBar" class="col-md-2">
+                    <div>
+                        <asp:LinkButton ID="linkbtnUserControl" runat="server" Text="Account info"/>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="linkbtnAdvertControl" runat="server" Text="Adverts">Adverts</asp:LinkButton>
+                    </div>
+                    <div>
+                        <asp:LinkButton ID="linkbtnOfferControl" runat="server" Text="Offers"/>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>                
+                </div>                
             </div>
         </form>
     </body>

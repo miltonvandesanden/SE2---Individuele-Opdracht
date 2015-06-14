@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using Oracle.DataAccess.Client;
 
 namespace SE2___Individuele_Opdracht
 {
@@ -21,6 +23,23 @@ namespace SE2___Individuele_Opdracht
         public void GetUser()
         {
             throw new System.NotImplementedException();
+        }
+
+        public List<User> GetAllUser()
+        {
+            List<User> users = new List<User>();
+
+            OracleCommand oracleCommand = OracleConnection.CreateCommand();
+            OracleDataReader oracleDataReader;
+
+            oracleCommand.CommandText = "SELECT userName, userPassword, email, phoneNumber, postalcode emailPref, paymentPref, receiptPref FROM SE2_User";
+
+            oracleDataReader = oracleCommand.ExecuteReader();
+
+            while (oracleDataReader.Read())
+            {
+
+            }
         }
     }
 }

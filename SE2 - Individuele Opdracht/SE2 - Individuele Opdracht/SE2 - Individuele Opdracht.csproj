@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,6 +61,7 @@
   <ItemGroup>
     <Content Include="InterfaceLayer\bootstrap.css" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="InterfaceLayer\CreateAccount.aspx" />
     <Content Include="InterfaceLayer\index.aspx" />
     <Content Include="InterfaceLayer\Masterpage.Master" />
     <None Include="Web.Debug.config">
@@ -84,6 +86,13 @@
     <Compile Include="BusinessLayer\LoginControl.cs" />
     <Compile Include="BusinessLayer\Offer.cs" />
     <Compile Include="BusinessLayer\OfferControl.cs" />
+    <Compile Include="InterfaceLayer\CreateAccount.aspx.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\CreateAccount.aspx.designer.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceLayer\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

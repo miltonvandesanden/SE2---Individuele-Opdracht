@@ -58,6 +58,24 @@ namespace SE2___Individuele_Opdracht.InterfaceLayer {
         protected global::System.Web.UI.WebControls.Button btnLoginControlLog;
         
         /// <summary>
+        /// lblLoginControlError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLoginControlError;
+        
+        /// <summary>
+        /// linkbtnCreateUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkbtnCreateUser;
+        
+        /// <summary>
         /// linkbtnUserControl control.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,15 @@ namespace SE2___Individuele_Opdracht.InterfaceLayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkbtnAdvertControl;
+        
+        /// <summary>
+        /// linkbtnOfferControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkbtnOfferControl;
         
         /// <summary>
         /// ContentPlaceHolder1 control.
