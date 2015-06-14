@@ -8,37 +8,15 @@ namespace SE2___Individuele_Opdracht
 {
     public class Service : Advert
     {
-        public string experience
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string Experience { get; set; }
+        public string Employees { get; set; }
+        public string CompanyType { get; set; }
 
-        public string employees
+        public Service(int advertID, string title, DateTime creationDate, int views, bool isService, int userID, string experience, string employees, string companyType) : base(advertID, title, creationDate, views, isService, userID)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public string companyType
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            Experience = experience;
+            Employees = employees;
+            CompanyType = companyType;
         }
     }
 }
