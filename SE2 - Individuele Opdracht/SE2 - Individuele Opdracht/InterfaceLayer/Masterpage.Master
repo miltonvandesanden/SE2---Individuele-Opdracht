@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage.master.cs" Inherits="SE2___Individuele_Opdracht.InterfaceLayer.Masterpage" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>marktplaats</title>
+        <link href="bootstrap.css" rel="stylesheet" type="text/css" />
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            <div ID="navBar" class="col-md-2">
+                <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+            </div>
+            <div class="col-md-8">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>                
+            </div>
+        </form>
+    </body>
+</html>
