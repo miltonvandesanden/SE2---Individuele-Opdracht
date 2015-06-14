@@ -8,86 +8,21 @@ namespace SE2___Individuele_Opdracht
 {
     public abstract class Advert
     {
-        public int advertID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int AdvertID { get; set; }
+        public string Title { get; set; }
+        public DateTime CreationDate { get; set; }
+        public int Views { get; set; }
+        public bool IsService { get; set; }
+        public int UserID { get; set; }
 
-        public string title
+        public Advert(int advertID, string title, DateTime creationDate, int views, bool isService, int userID)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public DateTime creationDate
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int views
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public bool service
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int userID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public User User
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public void GetOwner()
-        {
-            throw new System.NotImplementedException();
+            AdvertID = advertID;
+            Title = title;
+            CreationDate = creationDate;
+            Views = views;
+            IsService = isService;
+            UserID = userID;
         }
     }
 }

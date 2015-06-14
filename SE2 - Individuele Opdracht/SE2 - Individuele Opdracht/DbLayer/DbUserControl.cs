@@ -41,5 +41,23 @@ namespace SE2___Individuele_Opdracht
 
             }
         }
+
+        public List<Advert> GetAllAdvertsOfUser(int userID)
+        {
+            List<Advert> adverts = new List<Advert>();
+            OracleCommand oracleCommand;
+            OracleDataReader oracleDataReader;
+
+            oracleCommand = OracleConnection.CreateCommand();
+            oracleCommand.CommandText = "SELECT advertID, title, creationDate, views, serviceOrGood, categoryID FROM SE2_Advert WHERE userID = :userID";
+            oracleCommand.Parameters.Add("userID", userID);
+
+            oracleDataReader = oracleCommand.ExecuteReader();
+
+            while (oracleDataReader.Read())
+            {
+                adverts.Add(new Advert());
+            }
+        }
     }
 }

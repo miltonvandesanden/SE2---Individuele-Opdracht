@@ -35,5 +35,10 @@ namespace SE2___Individuele_Opdracht
         {
             
         }
+
+        public List<Advert> GetAllAdvertsOfUser(int userID)
+        {
+            
+        }
     }
 }

@@ -10,21 +10,13 @@ namespace SE2___Individuele_Opdracht
     public class User
     {
         public int userID {get; set;}
-
         public string userName {get; set;}
-
         public string userPassword {get; set;}
-
         public string email {get; set; }
-
         public int phonenumber {get; set; }
-
         public bool emailPref{get; set;}
-
         public bool paymentPref{get; set;}
-
         public bool receiptPref{get; set; }
-
         public List<Advert> Adverts{get; set;}
 
         public User(int userID, string userName, string userPassword, string email, int phonenumber, bool emailPref, bool receiptPref, bool paymentPref)
@@ -37,10 +29,6 @@ namespace SE2___Individuele_Opdracht
             this.emailPref = emailPref;
             this.receiptPref = receiptPref;
             this.paymentPref = paymentPref;
-        }
-        public void GetUserAdverts()
-        {
-
         }
     }
 }
