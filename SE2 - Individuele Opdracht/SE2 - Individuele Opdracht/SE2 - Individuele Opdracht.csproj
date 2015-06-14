@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -59,6 +60,7 @@
   <ItemGroup>
     <Content Include="InterfaceLayer\bootstrap.css" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="InterfaceLayer\index.aspx" />
     <Content Include="InterfaceLayer\Masterpage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -82,6 +84,13 @@
     <Compile Include="BusinessLayer\LoginControl.cs" />
     <Compile Include="BusinessLayer\Offer.cs" />
     <Compile Include="BusinessLayer\OfferControl.cs" />
+    <Compile Include="InterfaceLayer\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceLayer\Masterpage.Master.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,0 +1,7 @@
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\obj\Debug\SE2 - Individuele Opdracht.csprojResolveAssemblyReference.cache
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\bin\SE2 - Individuele Opdracht.dll.config
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\bin\SE2 - Individuele Opdracht.dll
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\bin\SE2 - Individuele Opdracht.pdb
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\bin\Oracle.DataAccess.dll
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\obj\Debug\SE2 - Individuele Opdracht.dll
+C:\Users\Milton\Documents\GitHub\SE2---Individuele-Opdracht\SE2 - Individuele Opdracht\SE2 - Individuele Opdracht\obj\Debug\SE2 - Individuele Opdracht.pdb

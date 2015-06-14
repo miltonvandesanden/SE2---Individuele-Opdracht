@@ -10,8 +10,16 @@
     </head>
     <body>
         <form id="form1" runat="server">
-            <div ID="navBar" class="col-md-2">
-                <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+            <div id="SideBar" class="col-md-2">
+                <div id="LoginControl">
+                    <asp:TextBox ID="tbLoginControlUsername" runat="server" />
+                    <asp:TextBox ID="tbLoginControlPassword" runat="server" />
+                    <asp:Button ID="btnLoginControlLog" runat="server" Text="LogIn" />
+                </div>
+                <div id="NavBar">
+                    <asp:LinkButton ID="linkbtnUserControl" runat="server">User Control</asp:LinkButton>
+                    <asp:LinkButton ID="linkbtnAdvertControl" runat="server">Advert Control</asp:LinkButton>
+                </div>
             </div>
             <div class="col-md-8">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
