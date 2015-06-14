@@ -8,37 +8,15 @@ namespace SE2___Individuele_Opdracht
 {
     public class Offer
     {
-        public int ammount
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int Ammount { get; set; }
+        public int AdvertID { get; set; }
+        public int UserID { get; set; }
 
-        public Advert Advert
+        public Offer(int ammount, int advertId, int userId)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public User User
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            Ammount = ammount;
+            AdvertID = advertId;
+            UserID = userId;
         }
     }
 }
