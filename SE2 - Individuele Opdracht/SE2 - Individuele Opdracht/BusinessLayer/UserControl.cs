@@ -10,7 +10,7 @@ namespace SE2___Individuele_Opdracht
     public class UserControl
     {
         private DbUserControl dbUserControl = new DbUserControl();
-        private List<User> users = new List<User>();
+        public List<User> Users { get; set; }
         public UserControl()
         {
             GetAllUsers();
@@ -23,7 +23,7 @@ namespace SE2___Individuele_Opdracht
         public User GetUser(string username)
         {
             User result = null;
-            foreach (User user in users)
+            foreach (User user in Users)
             {
                 if (user.UserName == username)
                 {
@@ -36,7 +36,7 @@ namespace SE2___Individuele_Opdracht
 
         public void GetAllUsers()
         {
-            users = dbUserControl.GetAllUsers();
+            Users = dbUserControl.GetAllUsers();
         }
     }
 }

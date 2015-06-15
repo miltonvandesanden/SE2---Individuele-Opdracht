@@ -100,7 +100,7 @@ namespace SE2___Individuele_Opdracht
             return advertID;
         }
 
-        public void CreateAdvert(string title, bool isService, int userID, int categoryID)
+        private void CreateAdvert(string title, bool isService, int userID, int categoryID)
         {
             try
             {
@@ -223,7 +223,7 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
-        public void DeleteService(int advertID)
+        private void DeleteService(int advertID)
         {
             try
             {
@@ -255,7 +255,7 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
-        public void DeleteGood(int advertID)
+        private void DeleteGood(int advertID)
         {
             try
             {

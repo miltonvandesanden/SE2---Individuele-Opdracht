@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -8,46 +9,30 @@ namespace SE2___Individuele_Opdracht
 {
     public class AdvertControl
     {
-        public DbAdvertControl DbAdvertControl
+        private DbAdvertControl dbAdvertControl;
+        public List<Advert> Adverts { get; set; }    
+        public void CreateService(string title, bool isService, int userID, int categoryID, string experience,
+            string employees, string companyType)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            dbAdvertControl.CreateService(title, isService, userID, categoryID, experience, employees, companyType);
+            GetAllAdverts();
         }
 
-        public Advert Advert
+        public void CreateGood (string title, bool isService, int userID, int categoryID, string condition)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-    
-        public void CreateAdvert()
-        {
-            throw new System.NotImplementedException();
+            dbAdvertControl.CreateGood(title, isService, userID, categoryID, condition);
+            GetAllAdverts();
         }
 
-        public void DeleteAdvert()
+        public void DeleteAdvert(int advertID, bool isService)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void EditAdvert()
-        {
-            throw new System.NotImplementedException();
+            dbAdvertControl.DeleteAdvert(advertID, isService);
+            GetAllAdverts();
         }
 
         public void GetAllAdverts()
         {
-            throw new System.NotImplementedException();
+            Adverts = dbAdvertControl.GetAllAdverts();
         }
     }
 }

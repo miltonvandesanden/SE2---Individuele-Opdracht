@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -8,41 +9,21 @@ namespace SE2___Individuele_Opdracht
 {
     public class OfferControl
     {
-        public Offer Offer
+        public List<Offer> Offers { get; set; }
+        private DbOfferControl dbOfferControl = new DbOfferControl();
+        public void CreateOffer(int amount, int userID, int advertID)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            dbOfferControl.CreateOffer(amount, userID, advertID);
         }
 
-        public DbOfferControl DbOfferControl
+        public void DeleteOffer(int offerID, int userID, int advertID)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-    
-        public void CreateOffer()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void DeleteOffer()
-        {
-            throw new System.NotImplementedException();
+            dbOfferControl.DeleteOffer(offerID, userID, advertID);
         }
 
         public void GetAllOffers()
         {
-            throw new System.NotImplementedException();
+            Offers = dbOfferControl.GetAllOffers();
         }
     }
 }

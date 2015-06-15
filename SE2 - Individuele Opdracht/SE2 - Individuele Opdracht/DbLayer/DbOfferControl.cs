@@ -49,7 +49,7 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
-        public bool CheckOffer(int userID, int advertID)
+        private bool CheckOffer(int userID, int advertID)
         {
             bool result = false;
 
