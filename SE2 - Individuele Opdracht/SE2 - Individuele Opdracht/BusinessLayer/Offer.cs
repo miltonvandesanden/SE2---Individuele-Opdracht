@@ -8,12 +8,14 @@ namespace SE2___Individuele_Opdracht
 {
     public class Offer
     {
+        public int OfferID { get; set; }
         public int Ammount { get; set; }
         public int AdvertID { get; set; }
         public int UserID { get; set; }
 
-        public Offer(int ammount, int advertId, int userId)
+        public Offer(int offerID, int ammount, int advertId, int userId)
         {
+            OfferID = offerID;
             Ammount = ammount;
             AdvertID = advertId;
             UserID = userId;

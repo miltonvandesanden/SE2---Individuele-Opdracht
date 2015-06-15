@@ -10,21 +10,29 @@ namespace SE2___Individuele_Opdracht
 {
     public class DbLoginControl : DbConnection
     {
-    
         public bool Login(string username, string password)
+        {
+            return CheckUser(username, password);
+        }
+
+        private bool CheckUser(string username, string password)
         {
             bool result = false;
 
             try
             {
-                OracleCommand oracleCommand = OracleConnection.CreateCommand();
-                OracleDataReader oracleDataReader = oracleCommand.ExecuteReader();
-
-                oracleCommand.CommandText = "SELECT userName, userPassword FROM SE2_User WHERE userName = :username AND userPassword = :password";
-                oracleCommand.Parameters.Add("username", username);
-                oracleCommand.Parameters.Add("password", password);
+                OracleCommand oracleCommand;
+                OracleDataReader oracleDataReader;
 
                 OracleConnection.Open();
+                oracleCommand = OracleConnection.CreateCommand();
+
+                oracleCommand.CommandText =
+                    "SELECT userName, userPassword FROM SE2_User WHERE userName = :username AND userPassword = :password";
+                oracleCommand.Parameters.Add(new OracleParameter("username", username));
+                oracleCommand.Parameters.Add(new OracleParameter("password", password));
+
+                oracleDataReader = oracleCommand.ExecuteReader();
 
                 if (oracleDataReader.HasRows)
                 {
@@ -33,8 +41,18 @@ namespace SE2___Individuele_Opdracht
             }
             catch (Exception exception)
             {
-                
                 throw exception;
+            }
+            finally
+            {
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
 
             return result;

@@ -10,7 +10,8 @@ namespace SE2___Individuele_Opdracht
 {
     public class DbAdvertControl : DbConnection
     {
-        public void CreateService(string title, bool isService, int userID, int categoryID, string experience, string employees, string companyType)
+        public void CreateService(string title, bool isService, int userID, int categoryID, string experience,
+            string employees, string companyType)
         {
             if (!CheckAdvert(title))
             {
@@ -18,15 +19,18 @@ namespace SE2___Individuele_Opdracht
 
                 try
                 {
+                    OracleCommand oracleCommand;
+
                     OracleConnection.Open();
 
-                    OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                    oracleCommand = OracleConnection.CreateCommand();
 
-                    oracleCommand.CommandText = "INSERT INTO SE2_Service (advertID, experience, employees, companyType) VALUES (:advertID, :experience, :employees, :companyType)";
-                    oracleCommand.Parameters.Add("advertID", GetAdvertID(title));
-                    oracleCommand.Parameters.Add("experience", experience);
-                    oracleCommand.Parameters.Add("employees", employees);
-                    oracleCommand.Parameters.Add("companyType", companyType);
+                    oracleCommand.CommandText =
+                        "INSERT INTO SE2_Service (advertID, experience, employees, companyType) VALUES (:advertID, :experience, :employees, :companyType)";
+                    oracleCommand.Parameters.Add(new OracleParameter("advertID", GetAdvertID(title)));
+                    oracleCommand.Parameters.Add(new OracleParameter("experience", experience));
+                    oracleCommand.Parameters.Add(new OracleParameter("employees", employees));
+                    oracleCommand.Parameters.Add(new OracleParameter("companyType", companyType));
 
                     oracleCommand.ExecuteNonQuery();
                 }
@@ -36,7 +40,14 @@ namespace SE2___Individuele_Opdracht
                 }
                 finally
                 {
-                    OracleConnection.Close();
+                    try
+                    {
+                        OracleConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        throw exception;
+                    }
                 }
             }
         }
@@ -57,7 +68,7 @@ namespace SE2___Individuele_Opdracht
                     oracleCommand = OracleConnection.CreateCommand();
 
                     oracleCommand.CommandText = "SELECT advertID FROM SE2_Advert WHERE title = :title";
-                    oracleCommand.Parameters.Add("title", title);
+                    oracleCommand.Parameters.Add(new OracleParameter("title", title));
 
                     oracleDataReader = oracleCommand.ExecuteReader();
 
@@ -71,12 +82,18 @@ namespace SE2___Individuele_Opdracht
                 }
                 catch (Exception exception)
                 {
-
                     throw exception;
                 }
                 finally
                 {
-                    OracleConnection.Close();
+                    try
+                    {
+                        OracleConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        throw exception;
+                    }
                 }
             }
 
@@ -87,22 +104,25 @@ namespace SE2___Individuele_Opdracht
         {
             try
             {
+                OracleCommand oracleCommand;
+
                 OracleConnection.Open();
 
-                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                oracleCommand = OracleConnection.CreateCommand();
 
-                oracleCommand.CommandText = "INSERT INTO SE2_ADVERT (title, serviceOrGood, userID, categoryID) VALUES(:title, :serviceOrGood, :userID, :categoryID)";
-                oracleCommand.Parameters.Add("title", title);
+                oracleCommand.CommandText =
+                    "INSERT INTO SE2_ADVERT (title, serviceOrGood, userID, categoryID) VALUES(:title, :serviceOrGood, :userID, :categoryID)";
+                oracleCommand.Parameters.Add(new OracleParameter("title", title));
                 if (isService)
                 {
-                    oracleCommand.Parameters.Add("serviceOrGood", 1);
+                    oracleCommand.Parameters.Add(new OracleParameter("serviceOrGood", 1));
                 }
                 else
                 {
-                    oracleCommand.Parameters.Add("serviceOrGood", 0);
+                    oracleCommand.Parameters.Add(new OracleParameter("serviceOrGood", 0));
                 }
-                oracleCommand.Parameters.Add("userID", userID);
-                oracleCommand.Parameters.Add("categoryID", categoryID);
+                oracleCommand.Parameters.Add(new OracleParameter("userID", userID));
+                oracleCommand.Parameters.Add(new OracleParameter("categoryID", categoryID));
             }
             catch (Exception exception)
             {
@@ -111,7 +131,15 @@ namespace SE2___Individuele_Opdracht
             }
             finally
             {
-                OracleConnection.Close();
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+
+                    throw exception;
+                }
             }
         }
 
@@ -123,13 +151,16 @@ namespace SE2___Individuele_Opdracht
 
                 try
                 {
+                    OracleCommand oracleCommand;
+
                     OracleConnection.Open();
 
-                    OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                    oracleCommand = OracleConnection.CreateCommand();
 
-                    oracleCommand.CommandText = "INSERT INTO SE2_Good (advertID, condition) VALUES (:advertID, :condition)";
-                    oracleCommand.Parameters.Add("advertID", GetAdvertID(title));
-                    oracleCommand.Parameters.Add("condition", condition);
+                    oracleCommand.CommandText =
+                        "INSERT INTO SE2_Good (advertID, condition) VALUES (:advertID, :condition)";
+                    oracleCommand.Parameters.Add(new OracleParameter("advertID", GetAdvertID(title)));
+                    oracleCommand.Parameters.Add(new OracleParameter("condition", condition));
 
                     oracleCommand.ExecuteNonQuery();
                 }
@@ -139,11 +170,19 @@ namespace SE2___Individuele_Opdracht
                 }
                 finally
                 {
-                    OracleConnection.Close();
+                    try
+                    {
+                        OracleConnection.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        throw exception;
+                    }
                 }
             }
 
         }
+
         public void DeleteAdvert(int advertID, bool isService)
         {
             if (isService)
@@ -163,7 +202,7 @@ namespace SE2___Individuele_Opdracht
                 oracleCommand = OracleConnection.CreateCommand();
 
                 oracleCommand.CommandText = "DELETE FROM SE2_Advert WHERE advertID = :advertID";
-                oracleCommand.Parameters.Add("advertID", advertID);
+                oracleCommand.Parameters.Add(new OracleParameter("advertID", advertID));
 
                 oracleCommand.ExecuteNonQuery();
             }
@@ -173,7 +212,14 @@ namespace SE2___Individuele_Opdracht
             }
             finally
             {
-                OracleConnection.Close();
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
         }
 
@@ -187,7 +233,7 @@ namespace SE2___Individuele_Opdracht
                 oracleCommand = OracleConnection.CreateCommand();
 
                 oracleCommand.CommandText = "DELETE FROM SE2_Service WHERE advertID = :advertID";
-                oracleCommand.Parameters.Add("advertID", advertID);
+                oracleCommand.Parameters.Add(new OracleParameter("advertID", advertID));
 
                 oracleCommand.ExecuteNonQuery();
             }
@@ -197,7 +243,15 @@ namespace SE2___Individuele_Opdracht
             }
             finally
             {
-                OracleConnection.Close();
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+
+                    throw exception;
+                }
             }
         }
 
@@ -211,7 +265,7 @@ namespace SE2___Individuele_Opdracht
                 oracleCommand = OracleConnection.CreateCommand();
 
                 oracleCommand.CommandText = "DELETE FROM SE2_Good WHERE advertID = :advertID";
-                oracleCommand.Parameters.Add("advertID", advertID);
+                oracleCommand.Parameters.Add(new OracleParameter("advertID", advertID));
 
                 oracleCommand.ExecuteNonQuery();
             }
@@ -221,7 +275,14 @@ namespace SE2___Individuele_Opdracht
             }
             finally
             {
-                OracleConnection.Close();
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
         }
 
@@ -231,13 +292,14 @@ namespace SE2___Individuele_Opdracht
 
             try
             {
-                OracleConnection.Open();
-
-                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleCommand oracleCommand;
                 OracleDataReader oracleDataReader;
 
+                OracleConnection.Open();
+                oracleCommand = OracleConnection.CreateCommand();
+
                 oracleCommand.CommandText = "SELECT title FROM SE2_ADVERT WHERE title = :title";
-                oracleCommand.Parameters.Add("title", title);
+                oracleCommand.Parameters.Add(new OracleParameter("title", title));
 
                 oracleDataReader = oracleCommand.ExecuteReader();
 
@@ -245,16 +307,26 @@ namespace SE2___Individuele_Opdracht
                 {
                     result = true;
                 }
-
-                OracleConnection.Close();
             }
             catch (Exception exception)
             {
                 throw exception;
             }
+            finally
+            {
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
 
             return result;
         }
+
         public List<Advert> GetAllAdverts()
         {
             List<Advert> adverts = new List<Advert>();
@@ -278,12 +350,14 @@ namespace SE2___Individuele_Opdracht
 
             try
             {
-                OracleConnection.Open();
-
-                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleCommand oracleCommand;
                 OracleDataReader oracleDataReader;
 
-                oracleCommand.CommandText = "SELECT A.advertID, A.title, A.creationDate, A.views, A.serviceOrGood, A.userID, A.categoryID, S.experience, S.employees, S.companyType FROM SE2_Advert A, SE2_Service S WHERE A.advertID = S.advertID";
+                OracleConnection.Open();
+                oracleCommand = OracleConnection.CreateCommand();
+
+                oracleCommand.CommandText =
+                    "SELECT A.advertID, A.title, A.creationDate, A.views, A.serviceOrGood, A.userID, A.categoryID, S.experience, S.employees, S.companyType FROM SE2_Advert A, SE2_Service S WHERE A.advertID = S.advertID";
 
                 oracleDataReader = oracleCommand.ExecuteReader();
 
@@ -302,15 +376,26 @@ namespace SE2___Individuele_Opdracht
                         string employees = Convert.ToString(oracleDataReader["S.employees"]);
                         string companyType = Convert.ToString(oracleDataReader["S.companyType"]);
 
-                        services.Add(new Service(advertID, title, creationDate, views, isService, userID, categoryID, experience, employees, companyType));
+                        services.Add(new Service(advertID, title, creationDate, views, isService, userID, categoryID,
+                            experience, employees, companyType));
                     }
                 }
-
-                OracleConnection.Close();
             }
             catch (Exception exception)
             {
                 throw exception;
+            }
+            finally
+            {
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
+
+                    throw exception;
+                }
             }
             return services;
         }
@@ -321,12 +406,14 @@ namespace SE2___Individuele_Opdracht
 
             try
             {
-                OracleConnection.Open();
-
-                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleCommand oracleCommand;
                 OracleDataReader oracleDataReader;
 
-                oracleCommand.CommandText = "SELECT A.advertID, A.title, A.creationDate, A.views, A.serviceOrGood, A.userID, A.categoryID, G.condition FROM SE2_Advert A, SE2_Good G WHERE A.advertID = G.advertID";
+                OracleConnection.Open();
+                oracleCommand = OracleConnection.CreateCommand();
+
+                oracleCommand.CommandText =
+                    "SELECT A.advertID, A.title, A.creationDate, A.views, A.serviceOrGood, A.userID, A.categoryID, G.condition FROM SE2_Advert A, SE2_Good G WHERE A.advertID = G.advertID";
 
                 oracleDataReader = oracleCommand.ExecuteReader();
 
@@ -343,18 +430,29 @@ namespace SE2___Individuele_Opdracht
                         int categoryID = Convert.ToInt32(oracleDataReader["A.categoryID"]);
                         string condition = Convert.ToString(oracleDataReader["G.condition"]);
 
-                        goods.Add(new Good(advertID, title, creationDate, views, isService, userID, categoryID, condition));
+                        goods.Add(new Good(advertID, title, creationDate, views, isService, userID, categoryID,
+                            condition));
                     }
                 }
-
-                OracleConnection.Close();
             }
             catch (Exception exception)
             {
                 throw exception;
             }
-            return goods;
+            finally
+            {
+                try
+                {
+                    OracleConnection.Close();
+                }
+                catch (Exception exception)
+                {
 
+                    throw exception;
+                }
+            }
+
+            return goods;
         }
     }
 }
