@@ -32,10 +32,8 @@
             <div class="row">
                 <div id="NavBar" class="col-md-2">
                     <div>
-                        <asp:LinkButton ID="linkbtnUserControl" runat="server" Text="Account info"/>
-                    </div>
-                    <div>
-                        <asp:LinkButton ID="linkbtnAdvertControl" runat="server" Text="Adverts">Adverts</asp:LinkButton>
+                        <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>
+                        <asp:LinkButton ID="linkbtnAdvertControl" runat="server" Text="Adverts" OnClick="linkbtnAdvertControl_OnClick">Adverts</asp:LinkButton>
                     </div>
                     <div>
                         <asp:LinkButton ID="linkbtnOfferControl" runat="server" Text="Offers"/>

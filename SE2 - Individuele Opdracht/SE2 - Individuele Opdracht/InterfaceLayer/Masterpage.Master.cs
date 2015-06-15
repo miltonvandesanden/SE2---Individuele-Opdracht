@@ -45,5 +45,20 @@ namespace SE2___Individuele_Opdracht.InterfaceLayer
         {
 
         }
+
+        protected void linkbtnAdvertControlMyAdverts_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void linkbtnAdvertControlAdverts_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void linkbtnAdvertControl_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

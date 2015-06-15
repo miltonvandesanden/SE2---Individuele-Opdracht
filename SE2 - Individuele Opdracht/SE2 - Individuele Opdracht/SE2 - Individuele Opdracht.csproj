@@ -72,6 +72,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="InterfaceLayer\PageAdvertControl.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="InterfaceLayer\Masterpage.Master.designer.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLayer\PageAdvertControl.aspx.cs">
+      <DependentUpon>PageAdvertControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterfaceLayer\PageAdvertControl.aspx.designer.cs">
+      <DependentUpon>PageAdvertControl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BusinessLayer\Service.cs" />

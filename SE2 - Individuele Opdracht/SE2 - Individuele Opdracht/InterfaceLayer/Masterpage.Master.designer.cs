@@ -76,13 +76,13 @@ namespace SE2___Individuele_Opdracht.InterfaceLayer {
         protected global::System.Web.UI.WebControls.LinkButton linkbtnCreateUser;
         
         /// <summary>
-        /// linkbtnUserControl control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtnUserControl;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
         /// linkbtnAdvertControl control.
