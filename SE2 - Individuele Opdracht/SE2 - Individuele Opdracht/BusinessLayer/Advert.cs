@@ -6,6 +6,9 @@ using System.ComponentModel;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// deze class bewaard alle info over de Adverts uit de database
+    /// </summary>
     public abstract class Advert
     {
         public int AdvertID { get; set; }

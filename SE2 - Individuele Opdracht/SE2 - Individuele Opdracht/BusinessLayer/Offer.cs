@@ -6,6 +6,9 @@ using System.ComponentModel;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// bewaard alle info over Offers
+    /// </summary>
     public class Offer
     {
         public int OfferID { get; set; }

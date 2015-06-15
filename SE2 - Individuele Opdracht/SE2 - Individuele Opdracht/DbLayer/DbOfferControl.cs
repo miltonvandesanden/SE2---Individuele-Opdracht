@@ -8,8 +8,17 @@ using Oracle.DataAccess.Client;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// deze class vormt de verbinding tussen de class OfferControl en de database
+    /// </summary>
     public class DbOfferControl : DbConnection
     {
+        /// <summary>
+        /// creeërt een nieuwe Offer in de database.
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="userID"></param>
+        /// <param name="advertID"></param>
         public void CreateOffer(int amount, int userID, int advertID)
         {
             if (!CheckOffer(userID, advertID))
@@ -49,6 +58,14 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// checked met behulp van het userID en het advertID of de Offer al in de database voorkomt,
+        /// returned true indien dit zo is
+        /// returned false indien dit niet zo is
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="advertID"></param>
+        /// <returns></returns>
         private bool CheckOffer(int userID, int advertID)
         {
             bool result = false;
@@ -94,6 +111,12 @@ namespace SE2___Individuele_Opdracht
             return result;
         }
 
+        /// <summary>
+        /// verwijderd een offer uit de database
+        /// </summary>
+        /// <param name="offerID"></param>
+        /// <param name="userID"></param>
+        /// <param name="advertID"></param>
         public void DeleteOffer(int offerID, int userID, int advertID)
         {
             if (CheckOffer(userID, advertID))
@@ -130,6 +153,10 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// haalt alle offers uit de database en returned deze als een lijst met Offer classes
+        /// </summary>
+        /// <returns></returns>
         public List<Offer> GetAllOffers()
         {
             List<Offer> offers = new List<Offer>();

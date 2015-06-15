@@ -7,6 +7,9 @@ using System.ComponentModel;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// bewaard alle info over Users
+    /// </summary>
     public class User
     {
         public int UserID {get; set;}

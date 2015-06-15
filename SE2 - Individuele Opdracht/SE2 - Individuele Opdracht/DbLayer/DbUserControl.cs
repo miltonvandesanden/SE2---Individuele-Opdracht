@@ -9,8 +9,18 @@ using Oracle.DataAccess.Client;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// deze class vormt de verbinding tussen de class UserControl en de database
+    /// </summary>
     public class DbUserControl : DbConnection
     {
+        /// <summary>
+        /// checked met behulp van de postalcode of er een Postalcode in de database bestaat met dezelfde postalcode
+        /// returned true indien dit zo is
+        /// returned false indien dit niet zo is
+        /// </summary>
+        /// <param name="postalcode"></param>
+        /// <returns></returns>
         public bool CheckPostalcode(string postalcode)
         {
             bool result = false;
@@ -53,6 +63,11 @@ namespace SE2___Individuele_Opdracht
 
             return result;
         }
+
+        /// <summary>
+        /// creeërt een nieuwe postalcode in de database
+        /// </summary>
+        /// <param name="postalcode"></param>
         public void CreatePostalcode(string postalcode)
         {
             try
@@ -84,7 +99,13 @@ namespace SE2___Individuele_Opdracht
                 }
             }
         }
-
+        /// <summary>
+        /// checked met behulp van de username of er een user in de database bestaat met dezelfde username
+        /// returned true indien dit zo is
+        /// returned false indien dit niet zo is
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public bool CheckUser(string username)
         {
             bool result = false;
@@ -127,6 +148,15 @@ namespace SE2___Individuele_Opdracht
 
             return result;
         }
+
+        /// <summary>
+        /// creeërt een nieuwe user in de database
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="userPassword"></param>
+        /// <param name="email"></param>
+        /// <param name="phone"></param>
+        /// <param name="postalcode"></param>
         public void CreateUser(string userName, string userPassword, string email, int phone, string postalcode)
         {
             if (!CheckUser(userName))
@@ -170,6 +200,10 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// returned een lijst met alle users uit de database
+        /// </summary>
+        /// <returns></returns>
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();
@@ -227,6 +261,11 @@ namespace SE2___Individuele_Opdracht
             return users;
         }
 
+        /// <summary>
+        /// returned alle advertID's van alle adverts van een bepaalde user
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public List<int> GetAllAdvertIDOfUser(int userID)
         {
             List<int> advertID = new List<int>();

@@ -6,6 +6,9 @@ using System.ComponentModel;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// bewaard alle info over Services
+    /// </summary>
     public class Service : Advert
     {
         public string Experience { get; set; }

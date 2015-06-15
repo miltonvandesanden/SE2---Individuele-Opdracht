@@ -8,8 +8,21 @@ using Oracle.DataAccess.Client;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// deze classvormd de verbinding tussen de class AdvertControl en de database.
+    /// </summary>
     public class DbAdvertControl : DbConnection
     {
+        /// <summary>
+        /// Creates a new Service if there is no existing service with the same title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="isService"></param>
+        /// <param name="userID"></param>
+        /// <param name="categoryID"></param>
+        /// <param name="experience"></param>
+        /// <param name="employees"></param>
+        /// <param name="companyType"></param>
         public void CreateService(string title, bool isService, int userID, int categoryID, string experience,
             string employees, string companyType)
         {
@@ -52,6 +65,11 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// returns de AdvertID property van de advert waarvan de title wordt meegegeven
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public int GetAdvertID(string title)
         {
             int advertID = -1;
@@ -100,6 +118,13 @@ namespace SE2___Individuele_Opdracht
             return advertID;
         }
 
+        /// <summary>
+        /// creeërt een nieuwe advert
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="isService"></param>
+        /// <param name="userID"></param>
+        /// <param name="categoryID"></param>
         private void CreateAdvert(string title, bool isService, int userID, int categoryID)
         {
             try
@@ -143,6 +168,14 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// creeërt een nieuwe Good indien er geen bestaande Good is met de meegegeven title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="isService"></param>
+        /// <param name="userID"></param>
+        /// <param name="categoryID"></param>
+        /// <param name="condition"></param>
         public void CreateGood(string title, bool isService, int userID, int categoryID, string condition)
         {
             if (!CheckAdvert(title))
@@ -183,6 +216,11 @@ namespace SE2___Individuele_Opdracht
 
         }
 
+        /// <summary>
+        /// Verwijderd een reeds bestaande Advert
+        /// </summary>
+        /// <param name="advertID"></param>
+        /// <param name="isService"></param>
         public void DeleteAdvert(int advertID, bool isService)
         {
             if (isService)
@@ -222,7 +260,11 @@ namespace SE2___Individuele_Opdracht
                 }
             }
         }
-
+        
+        /// <summary>
+        /// verwijderd een reeds bestaande service
+        /// </summary>
+        /// <param name="advertID"></param>
         private void DeleteService(int advertID)
         {
             try
@@ -255,6 +297,10 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// verwijderd een reeds bestaande Good
+        /// </summary>
+        /// <param name="advertID"></param>
         private void DeleteGood(int advertID)
         {
             try
@@ -286,6 +332,13 @@ namespace SE2___Individuele_Opdracht
             }
         }
 
+        /// <summary>
+        /// checked of een advert al bestaat met dezelfde title
+        /// returned true wanneer er een advert met dezelfde title is gevonden
+        /// returned false indien dit niet zo is
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public bool CheckAdvert(string title)
         {
             bool result = false;
@@ -327,6 +380,7 @@ namespace SE2___Individuele_Opdracht
             return result;
         }
 
+        //get alle adverts en returned een List met deze adverts
         public List<Advert> GetAllAdverts()
         {
             List<Advert> adverts = new List<Advert>();
@@ -344,6 +398,10 @@ namespace SE2___Individuele_Opdracht
             return adverts;
         }
 
+        /// <summary>
+        /// returned een List met alle Services
+        /// </summary>
+        /// <returns></returns>
         private List<Service> GetAllServices()
         {
             List<Service> services = new List<Service>();
@@ -400,6 +458,10 @@ namespace SE2___Individuele_Opdracht
             return services;
         }
 
+        /// <summary>
+        /// returned een List met alle Goods
+        /// </summary>
+        /// <returns></returns>
         public List<Good> GetAllGoods()
         {
             List<Good> goods = new List<Good>();

@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace SE2___Individuele_Opdracht
 {
+    /// <summary>
+    /// bewaard alle info over de Goods
+    /// </summary>
     public class Good : Advert
     {
         public string Condition { get; set; }
