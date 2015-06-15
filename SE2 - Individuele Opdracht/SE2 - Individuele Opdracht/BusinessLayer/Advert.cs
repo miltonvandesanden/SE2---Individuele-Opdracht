@@ -14,8 +14,9 @@ namespace SE2___Individuele_Opdracht
         public int Views { get; set; }
         public bool IsService { get; set; }
         public int UserID { get; set; }
+        public int CategoryID { get; set; }
 
-        public Advert(int advertID, string title, DateTime creationDate, int views, bool isService, int userID)
+        public Advert(int advertID, string title, DateTime creationDate, int views, bool isService, int userID, int categoryID)
         {
             AdvertID = advertID;
             Title = title;
@@ -23,6 +24,7 @@ namespace SE2___Individuele_Opdracht
             Views = views;
             IsService = isService;
             UserID = userID;
+            CategoryID = categoryID;
         }
     }
 }

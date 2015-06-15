@@ -11,7 +11,7 @@ namespace SE2___Individuele_Opdracht
     {
         public string Condition { get; set; }
 
-        public Good(int advertID, string title, DateTime creationDate, int views, bool isService, int userID, string condition) : base(advertID, title, creationDate, views, isService, userID)
+        public Good(int advertID, string title, DateTime creationDate, int views, bool isService, int userID, int categoryID, string condition) : base(advertID, title, creationDate, views, isService, userID, categoryID)
         {
             Condition = condition;
         }

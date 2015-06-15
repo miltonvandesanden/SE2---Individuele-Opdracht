@@ -10,7 +10,7 @@ namespace SE2___Individuele_Opdracht
     public abstract class DbConnection
     {
         private OracleConnection oracleConnection;
-        private string connectionString;
+        private string connectionString = "DATA SOURCE=//localhost:1521/xe;PASSWORD=SE2;USER ID=SE2";
         public OracleConnection OracleConnection { get { return oracleConnection; }}
 
         public DbConnection()

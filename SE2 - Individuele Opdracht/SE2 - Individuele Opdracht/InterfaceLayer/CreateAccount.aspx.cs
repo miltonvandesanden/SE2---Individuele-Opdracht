@@ -9,17 +9,14 @@ namespace SE2___Individuele_Opdracht.InterfaceLayer
 {
     public partial class CreateAccount : System.Web.UI.Page
     {
-        private LoginControl loginControl = new LoginControl();
+        private UserControl userControl = new UserControl();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         protected void btnAccountCreationCreate_Click(object sender, EventArgs e)
         {
-            if (loginControl.CreateAccount(tbAccountCreationUsername.Text, tbAccountCreationPassword.Text, tbAccountCreationEmail.Text, tbAccountCreationPostalcode.Text, Convert.ToInt32(tbAccountCreationPhone.Text)))
-            {
-                
-            }
+            userControl.CreateUser(tbAccountCreationUsername.Text, tbAccountCreationPassword.Text, tbAccountCreationEmail.Text, Convert.ToInt32(tbAccountCreationPhone.Text), tbAccountCreationPostalcode.Text);
         }
     }
 }

@@ -113,6 +113,8 @@ namespace SE2___Individuele_Opdracht
                     oracleCommand.Parameters.Add("email", email);
                     oracleCommand.Parameters.Add("phoneNumber", phone);
                     oracleCommand.Parameters.Add("postalcode", postalcode);
+
+                    OracleConnection.Close();
                 }
                 catch (Exception exception)
                 {
@@ -127,10 +129,12 @@ namespace SE2___Individuele_Opdracht
 
             try
             {
+                OracleConnection.Open();
+
                 OracleCommand oracleCommand = OracleConnection.CreateCommand();
                 OracleDataReader oracleDataReader;
 
-                oracleCommand.CommandText = "SELECT userID, userName, userPassword, email, phoneNumber, postalcode emailPref, paymentPref, receiptPref FROM SE2_User";
+                oracleCommand.CommandText = "SELECT userID, userName, userPassword, email, phoneNumber, postalcodeID emailPref, paymentPref, receiptPref FROM SE2_User";
 
                 oracleDataReader = oracleCommand.ExecuteReader();
 
@@ -143,7 +147,7 @@ namespace SE2___Individuele_Opdracht
                         string userPassword = Convert.ToString(oracleDataReader["userPassword"]);
                         string email = Convert.ToString(oracleDataReader["email"]);
                         int phone = Convert.ToInt32(oracleDataReader["phoneNumber"]);
-                        string postalcode = Convert.ToString(oracleDataReader["postalcode"]);
+                        int postalcode = Convert.ToInt32(oracleDataReader["postalcode"]);
                         bool emailPref = Convert.ToInt32(oracleDataReader["emailPref"]) == 1;
                         bool paymentPref = Convert.ToInt32(oracleDataReader["paymentPref"]) == 1;
                         bool receiptPref = Convert.ToInt32(oracleDataReader["emailPref"]) == 1;
@@ -151,10 +155,11 @@ namespace SE2___Individuele_Opdracht
                         users.Add(new User(userID, userName, userPassword, email, phone, postalcode, emailPref, paymentPref, receiptPref, GetAllAdvertIDOfUser(userID)));
                     }
                 }
+
+                OracleConnection.Close();
             }
             catch (Exception exception)
             {
-                
                 throw exception;
             }
 
@@ -165,20 +170,31 @@ namespace SE2___Individuele_Opdracht
         {
             List<int> advertID = new List<int>();
 
-            OracleCommand oracleCommand = OracleConnection.CreateCommand();
-            OracleDataReader oracleDataReader;
-
-            oracleCommand.CommandText = "Select advertID FROM SE2_Advert WHERE userID = :userID";
-            oracleCommand.Parameters.Add("userID", userID);
-
-            oracleDataReader = oracleCommand.ExecuteReader();
-
-            if (oracleDataReader.HasRows)
+            try
             {
-                while (oracleDataReader.Read())
+                OracleConnection.Open();
+
+                OracleCommand oracleCommand = OracleConnection.CreateCommand();
+                OracleDataReader oracleDataReader;
+
+                oracleCommand.CommandText = "Select advertID FROM SE2_Advert WHERE userID = :userID";
+                oracleCommand.Parameters.Add("userID", userID);
+
+                oracleDataReader = oracleCommand.ExecuteReader();
+
+                if (oracleDataReader.HasRows)
                 {
-                    advertID.Add(Convert.ToInt32(oracleDataReader["advertID"]));
+                    while (oracleDataReader.Read())
+                    {
+                        advertID.Add(Convert.ToInt32(oracleDataReader["advertID"]));
+                    }
                 }
+
+                OracleConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
             }
 
             return advertID;

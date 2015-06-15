@@ -14,20 +14,20 @@ namespace SE2___Individuele_Opdracht
         public string UserPassword {get; set;}
         public string Email {get; set; }
         public int Phonenumber {get; set; }
-        public string Postalcode { get; set; }
+        public int PostalcodeID { get; set; }
         public bool EmailPref{get; set;}
         public bool PaymentPref{get; set;}
         public bool ReceiptPref{get; set; }
         public List<int> AdvertID{get; set;}
 
-        public User(int userId, string userName, string userPassword, string email, int phonenumber, string postalcode, bool emailPref, bool paymentPref, bool receiptPref, List<int> advertId)
+        public User(int userId, string userName, string userPassword, string email, int phonenumber, int postalcodeID, bool emailPref, bool paymentPref, bool receiptPref, List<int> advertId)
         {
             UserID = userId;
             UserName = userName;
             UserPassword = userPassword;
             Email = email;
             Phonenumber = phonenumber;
-            Postalcode = postalcode;
+            PostalcodeID = postalcodeID;
             EmailPref = emailPref;
             PaymentPref = paymentPref;
             ReceiptPref = receiptPref;
